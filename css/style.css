@@ -1,4 +1,11 @@
-/* style.css for memory card game */
+/*----------------------------------------------------------------------
+   Name:     Memory Game
+   Document: style.css
+   Author:   Danny Villanueva
+   Date:     7-January-2018
+   Description:
+             This is the style.css for the Memory Game.
+-----------------------------------------------------------------------*/
 
 body {
 text-align: center;
@@ -25,7 +32,6 @@ main {
 
 h1 {
 font-family: "Raleway", sans-serif;
-/* color: #0D2C40; */
 letter-spacing: 1px;
 font-weight: 400;
 font-size: 45px;
@@ -35,7 +41,6 @@ margin: 0;
 
 h2 {
 font-family: "Raleway", sans-serif;
-/* color: #0D2C40; */
 letter-spacing: 1px;
 font-weight: 600;
 font-size: 20px;
