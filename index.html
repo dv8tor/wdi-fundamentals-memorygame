@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-/*----------------------------------------------------------------------
+<!---------------------------------------------------------------------
    Name:     Memory Game
    Document: index.html
    Author:   Danny Villanueva
    Date:     7-January-2018
    Description:
              This is the main html for the Memory Game.
------------------------------------------------------------------------*/
+-------------------------------------------------------------------- -->
 
 <html>
 <head>
@@ -28,17 +28,18 @@
 	<h2 id="Instructions">Instructions</h2>
 		<p>Concentration, also known as Match Memory, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn.  The object of the game is to turn over pairs of matching cards.</p>
 
-	<div id="Game">
-		<img src="images/back.png" alt="Queen of Diamonds">
-		<img src="images/back.png" alt="Queen of Hearts">
-		<img src="images/back.png" alt="King of Diamonds">
-		<img src="images/back.png" alt="King of Hearts">
-	</div>
+<!-- The visibility of this h2 element (and it's text) is controlled in main.js. It will either
+	 display that there is a Match or to Try again.                                         -->
+	<h2 id="matchOrNot">Match or No Match</h2>
+
+<!-- The game-board is built in main.js.                                                    -->
+	<div id="game-board" class="board clearfix"></div>
+
 	</main>
 	<footer class=clearfix>
 		<p class="copyright">Copyright 2017</p>
 		<p class="message">Created with &hearts; by <span class="name">GA</span></p>
 	</footer>
-	<script src="js/main.js"></script>
+	<script async src="js/main.js"></script>
 </body>
 </html>

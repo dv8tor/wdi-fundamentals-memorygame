@@ -5,6 +5,11 @@
 // Date:    7-January-2018
 // Description:
 //          This is the JS program to control the logic for the Memory Game.
+//          The alert to display that either a match was found or to try again
+//          was replaced with an h2 element.  The visibility and text of the 
+//          h2 element is controlled in this script.  This was done because
+//          the 2nd card that was selected would not get displayed until the
+//          OK button was clicked on the alert box and did not look very good.
 //*-------------------------------------------------------------------------*/
 
 // cards array objects
@@ -36,30 +41,46 @@ var cardsInPlay = [];
 
 // This function checks if there is a match for the two cards in play
 function checkForMatch() {
-	if (cardsInPlay[0] === cardsInPlay[1]) {
-		alert("You found a match!");
+	if (cardsInPlay[0].rank === cardsInPlay[1].rank) {
+		// Replaced alert with the following h2 element.
+		document.getElementById('matchOrNot').textContent = 'MATCH FOUND!';	
+		//alert("You found a match!");
 	}
-		else {
-			alert("Sorry, try again.");
-		}
+	else {
+		// Replaced alert with the following h2 element.
+		document.getElementById('matchOrNot').textContent = 'Sorry, try again.';
+		//alert("Sorry, try again.");
+	}
+	// Display the match or no match message
+	document.getElementById("matchOrNot").style.visibility = "visible";
 }
 
 // This function flips a card and puts the card in the cardsInPlay array.
 // If two cards are in play, then we can check for a match.
-// If only one card is in play, tell the user to flip another card.
-function flipCard(cardId) {
-	console.log("User flipped " + cards[cardId].rank);
-	cardsInPlay.push(cards[cardId].suit);
-	cardsInPlay.push(cards[cardId].rank);	
-	console.log(cards[cardId].cardImage);
-	console.log(cards[cardId].suit);
+function flipCard() {
+	var cardId = this.getAttribute("data-id");
+	this.setAttribute("src",cards[cardId].cardImage);
+	cardsInPlay.push({suit: cards[cardId].suit, rank:cards[cardId].rank});
 	if (cardsInPlay.length === 2) {
 		checkForMatch();
-		}
-		else {
-		// Set this alert later...	alert("Flip another card");
+	}
+	// If user attempts to click another card, reload the page to start again.
+	else if (cardsInPlay.length === 3) {
+			location.reload();
 		}
 }
 
-flipCard(0);
-flipCard(2);
+// This function creates the board of four cards.
+function createBoard() {
+	// Initially hide this h2 element.  Only displays when checkForMatch is called.
+	document.getElementById("matchOrNot").style.visibility = "hidden";
+	for (var i=0; i<cards.length; i++) {
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute("src", "images/back.png");
+		cardElement.setAttribute("data-id", i);
+		cardElement.addEventListener("click",flipCard);
+		document.getElementById("game-board").appendChild(cardElement);
+	}
+}
+
+createBoard();
