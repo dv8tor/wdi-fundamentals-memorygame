@@ -6,6 +6,10 @@
    Date:     7-January-2018
    Description:
              This is the main html for the Memory Game.
+
+             10-Jan-2018:
+             * Added section for score.
+             * Added section for reset button.
 -------------------------------------------------------------------- -->
 
 <html>
@@ -25,12 +29,14 @@
 	</nav>
 
 	<main>
+
 	<h2 id="Instructions">Instructions</h2>
 		<p>Concentration, also known as Match Memory, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn.  The object of the game is to turn over pairs of matching cards.</p>
-
+		<p class="score">Score</p>  <!-- This section displays how many matches. -->
 <!-- The visibility of this h2 element (and it's text) is controlled in main.js. It will either
 	 display that there is a Match or to Try again.                                         -->
-	<h2 id="matchOrNot">Match or No Match</h2>
+	<h2 id="matchOrNot">Match or No Match</h2><button onclick="resetPage()">Reset Cards</button>
+
 
 <!-- The game-board is built in main.js.                                                    -->
 	<div id="game-board" class="board clearfix"></div>
